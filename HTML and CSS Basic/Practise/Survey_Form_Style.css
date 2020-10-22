@@ -1,0 +1,14 @@
+.title{
+    background-color: lightskyblue;
+    width: 1000px;
+    height: 1000px;
+    text-align: center;
+}
+.form{
+    width: 900px;
+    height: 800px;
+    margin-top: 30px;
+    margin-left: 50px;
+    background-color: white;
+    text-align: center;
+}

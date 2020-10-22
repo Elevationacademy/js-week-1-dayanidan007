@@ -1,0 +1,38 @@
+.conteiner{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 20px;
+}
+
+#grey{
+    position: absolute;
+    background-color: gray;
+    width: 300px;
+    height: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+#red{
+    position: absolute;
+    background-color: red;
+    width: 300px;
+    height: 250px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#white{
+    position: absolute;
+    background-color: white;
+    border-color: white;
+    width: 200px;
+    height: 200px;
+    top: 0px;
+    right:50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

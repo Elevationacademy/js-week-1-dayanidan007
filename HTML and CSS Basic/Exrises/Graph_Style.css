@@ -1,0 +1,53 @@
+.graph{
+    width: 300px;
+    height: 150px;
+    background-color: #681DFF;
+    position: relative;
+    border: black 1px;
+}
+#money{
+   position: absolute;
+   padding: 5px;
+   top: 0px;
+   left: 0px;
+}
+
+#time{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 5px;
+}
+
+.col{
+    position: absolute;
+    background-color: darkgray;
+    width: 25px;
+    bottom: 2px;
+}
+
+#Num1{
+    left: 2px;
+    height: 30px;
+}
+#Num2{
+    left: 35px;
+    height: 90px;
+}
+#Num3{
+    left: 68px;
+    height: 130px;
+}
+#Num4{
+    left: 101px;
+    height: 115px;
+}
+#Num5{
+   left: 134px;
+   height: 100px;
+}
+#Num6{
+   left: 167px;
+   height: 50px;
+}
+
