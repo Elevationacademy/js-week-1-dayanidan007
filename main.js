@@ -94,7 +94,7 @@ const libray = {
 }
 myList.push(...libray.book)
 console.log(myList)
-/*
+
 const reservations = {
     bob: { claimed: false },
     ted: { claimed: true }
@@ -110,7 +110,7 @@ if(reservations[user]){
     }
 }else{
     reservations[user]= {claimed: true}
-}*/
+
 
 const date = 3
 
@@ -146,4 +146,7 @@ let price = kitchen.fridge.price
     price +=250
     console.log("Too bad she doesn't have an oven to cook the " + raddish + " in. And she'll have to pay 250 to fix the fridge.")
   }
-   
+}
+for(i=1;i<5;i++){
+console.log(i)
+}
