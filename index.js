@@ -105,3 +105,4 @@ for(let i=0; i<letters.length;i++){
         console.log(dictionary[key][j])
     }
 }  
+console.log("The end of Loops")
