@@ -253,13 +253,12 @@ console.log(deleted); //should be [] 
  
 // $$$ I cant beleive that its work!!! its amazing!! $$$
 
-// overriding the native splice method
 */
-
+// overriding the native splice method
 
 Array.prototype.Splice = function( start, toRemove, insert ) {
-    var remove = this.slice( start, start + toRemove );
-    var temp = this.slice(0,start).concat( insert, this.slice( start + toRemove ) );
+    let remove = this.slice( start, start + toRemove );
+    let temp = this.slice(0,start).concat( insert, this.slice( start + toRemove ) );
     this.length = 0;
     this.push.apply( this, temp );
     return remove;
