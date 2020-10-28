@@ -1,11 +1,11 @@
 
-/* $$$ Im finish this Exrsices in 26/10 $$$
+// $$$ Im finish this Exrsices in 26/10 $$$
 
 let companies = ["Tesla", "Amazon", "Google", "Microsoft"]
 for(company of companies){
     console.log("One day i will work at " + company )
-}*/
-/*
+}
+
 let names = ["Avi","Dani","Yoni"]
 let ages = [22,25,28]
 for(let i =0 ;i <names.length&&ages.length;i++){
@@ -106,8 +106,8 @@ for(let i=0; i<letters.length;i++){
         console.log(dictionary[key][j])
     }
 }  
-console.log("The end of Loops")*/
-/*
+console.log("The end of Loops")
+
 const person = {
     name: "Julius",
     speak: function(food) {
@@ -115,8 +115,8 @@ const person = {
     }
   }
   person.speak("cheese")
-*/
-/*
+
+// finish in 27/10
   const calcAge = function(nowYear,brithYear){
     return nowYear-brithYear;
   }
@@ -139,7 +139,7 @@ if(number %2 == 0){
     return false
 }
 }
-//console.log(isEven(4))
+console.log(isEven(4))
 
 const printOddnumbers = function(numbers) {
     for(let i=0;i<numbers.length;i++){
@@ -151,8 +151,7 @@ const printOddnumbers = function(numbers) {
 
 let numArray = [1,2,3,4,5,6,7,8]
 printOddnumbers(numArray);
-*/
-/*
+
 function checkExists(numbers,number) {
     for(let i=0; i<numbers.length;i++){
         if(numbers[i] == number){
@@ -202,7 +201,7 @@ function makeRegal(name) {
 const splice = function(array, ...numer) {
    return array.splice(...numer);    
 }
-
+*/
 Array.prototype.Splice = function( start, toRemove, ...item ) {
     let remove = this.slice( start, start + toRemove ); //cut the elements from start to howmany you want
     let temp = this.slice(0,start).concat( ...item, this.slice( start + toRemove ) ); // make a new array when is start in 0 index to start index and continu after the start and remove
@@ -216,7 +215,8 @@ Array.prototype.Splice = function( start, toRemove, ...item ) {
 arr = [1,2,3]
 deleted = arr.splice(1,1); 
 console.log(deleted); //should be [2] 
-
+ 
+// $$ finish in 28/10
 people_info = [
     {
       name: "guido",
