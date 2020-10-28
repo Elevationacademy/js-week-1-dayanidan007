@@ -203,104 +203,129 @@ const splice = function(array, ...numer) {
    return array.splice(...numer);    
 }
 
-// $$$ This is the Test $$$
-// remove 1 element
-let arr = [1,2,3]
-splice(arr, 0,1); 
-console.log(arr); //should be [2,3]
-
-
-// add 1 element
-arr = [1,2,3]
-splice(arr, 0,0,0); 
-console.log(arr); //should be [0,1,2,3]
-
-
-// add 2 elements
-arr = [1,2,3]
-splice(arr,0,0,-1,0); 
-console.log(arr); //should be [-1,0,1,2,3]
-
-
-// replace 1 element
-arr = [1,2,3]
-splice(arr,1,1,55); 
-console.log(arr); //should be [1,55,3] 
-
-
-// delete all elements from index to end
-arr = [1,2,3,4,5]
-splice(arr,1); 
-console.log(arr); //should be [1] 
-
-
-// returns array of deleted elements
-arr = [1,2,3]
-let deleted = splice(arr,1); 
-console.log(deleted); //should be [2,3] 
-
-
-// returns an array of the deleted element (1 element)
-arr = [1,2,3]
-deleted = splice(arr,1,1); 
-console.log(deleted); //should be [2] 
-
-
-// returns an empty array when no elements are deleted
-arr = [1,2,3]
-deleted = splice(arr,1,0,5); 
-console.log(deleted); //should be [] 
- 
-// $$$ I cant beleive that its work!!! its amazing!! $$$
-
-*/
-// overriding the native splice method
-
-Array.prototype.Splice = function( start, toRemove, insert ) {
-    let remove = this.slice( start, start + toRemove );
-    let temp = this.slice(0,start).concat( insert, this.slice( start + toRemove ) );
-    this.length = 0;
-    this.push.apply( this, temp );
+Array.prototype.Splice = function( start, toRemove, ...item ) {
+    let remove = this.slice( start, start + toRemove ); //cut the elements from start to howmany you want
+    let temp = this.slice(0,start).concat( ...item, this.slice( start + toRemove ) ); // make a new array when is start in 0 index to start index and continu after the start and remove
+   //and put the items you want
+    this.length = 0; // reset the array
+    this.push.apply( this, temp ); // put in the array the new array with all your actions
     return remove;
-};
-
-// remove 1 element
-let arr = [1,2,3]
-arr.splice(0,1); 
-console.log(arr); //should be [2,3]
-
-
-// add 1 element
-arr = [1,2,3]
-arr.splice(0,0,0); 
-console.log(arr); //should be [0,1,2,3]
-
-
-// replace 1 element
-arr = [1,2,3]
-arr.splice(1,1,55); 
-console.log(arr); //should be [1,55,3] 
-
-
-// delete all elements from index to end
-arr = [1,2,3,4,5]
-arr.splice(1); 
-console.log(arr); //should be [1] 
-
-
-// returns array of deleted elements
-arr = [1,2,3]
-let deleted = arr.splice(1); 
-console.log(deleted); //should be [2,3] 
-
+}
 
 // returns an array of the deleted element (1 element)
 arr = [1,2,3]
 deleted = arr.splice(1,1); 
 console.log(deleted); //should be [2] 
 
+people_info = [
+    {
+      name: "guido",
+      profession: "bungalow builder",
+      age: 17,
+      country: "canaland",
+      city: "sydurn",
+      catchphrase: "what a piece of wood!"
+    },
+    {
+      name: "petra",
+      profession: "jet plane mechanic",
+      age: 31,
+      country: "greenmark",
+      city: "bostork",
+      catchphrase: "that's my engine, bub"
+    },
+    {
+      name: "damian",
+      profession: "nursery assistant",
+      age: 72,
+      country: "zimbia",
+      city: "bekyo",
+      catchphrase: "with great responsibility comes great power"
+    }
+  ]
+  
+const capitalize = function(str){
+ let capital = ""
+ capital += str[0].toUpperCase();
+ capital += str.slice(1)
+ return capital
+}
 
-// returns an empty array when no elements are deleted
-arr = [1,2,3]
-deleted = arr.splice(1,0,5); 
-console.log(deleted); //should be [] */
+const cityAndcountry = function(Country,City){
+let living = ""
+living += capitalize(City) + " , " + capitalize(Country)
+return living
+}
+const definitionlAge = function(age){
+    if(age < 21){
+        return "Underage"
+    }
+    else if(age >55){
+        return "55+"
+    }
+    else{
+        return age
+    }
+}
+
+const catchphrasesin = function(string){
+    let str = ""
+    str += '"'+capitalize(string) + '"'
+    return str
+}
+
+const getSummary = function(person){
+   let summary = ""
+    summary +=  capitalize(person.name)
+    summary += ` is an ${definitionlAge(person.age)} `
+    summary +=  capitalize(person.profession)
+    summary += ` from ${cityAndcountry(person.country,person.city)} `
+    summary +=  `${capitalize(person.name)} love to say ${catchphrasesin(person.catchphrase)}`
+    return summary
+}
+
+
+console.log(getSummary(people_info[0]))
+*/
+
+//$$$ its work its amazing function!!
+
+const cleanText = function(str){
+    for(let i=0 ;i<str.length;i++){
+        str = str.toLowerCase()
+    }
+    const specialChars = [",", ".", "'", '"',"?", "!", ";"]
+    for(let i=0;i<specialChars.length;i++) {
+        str = str.split(specialChars[i]).join("")
+    } return str
+    
+}
+
+const equalWords = function(str){
+ str = cleanText(str)
+ let container =  str.split(" ") 
+ let count = 1
+ let temp = {}
+
+for(let i=0; i < container.length ; i++){
+ for(let j = container.length-1; j > i ; j--){
+      if(container[i] == container[j]){
+        delete container[j]
+        count++
+      }
+  } 
+    if(container[i]!= undefined){
+    temp[container[i]] = count,
+    count = 1
+    }
+ }
+  return temp
+}
+
+const story = "In the beginning there was light. Then there were wolves. Finally there was a big fire. Ultimately, Shelob the wolf-master put out the fire with her feet. But until then, the fire caused one heck of a lot of damage."
+
+console.log(equalWords(story))
+
+
+
+
